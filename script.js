@@ -125,18 +125,24 @@ function showJs() {
 function showHkb() {
 	clearAll();
 	document.getElementById("hkb").innerHTML = /*HTML*/ `
-    <div class="container" id="heads">
+    <div class="container">
+		<button onclick="headLeft()">◀</button>
+			<img src="${headContainer}"/>
+		<button onclick="headRight()">▶</button>
 		</div>
 
-		<div class="container" id="bodies">
+    <div class="container">
+		<button onclick="bodyLeft()">◀</button>
+			<img src="${bodyContainer}"/>
+		<button onclick="bodyRight()">▶</button>
 		</div>
 
-		<div class="container" id="legs">
+    <div class="container">
+		<button onclick="legsLeft()">◀</button>
+			<img src="${legsContainer}"/>
+		<button onclick="legsRight()">▶</button>
 		</div>
     `;
-	head1();
-	body1();
-	legs1();
 }
 
 function clearAll() {
@@ -147,8 +153,6 @@ function clearAll() {
 	document.getElementById("hkb").innerHTML = "";
 	document.getElementById("counter").innerHTML = "";
 }
-/*
-const headContainer = document.getElementById("heads");
 
 const arrHeads = [
 	"img/head1.png",
@@ -157,102 +161,84 @@ const arrHeads = [
 	"img/head4.png",
 ];
 
-*/
+const arrBodies = [
+	"img/body1.png",
+	"img/body2.png",
+	"img/body3.png",
+	"img/body4.png",
+];
 
-function head1() {
-	document.getElementById("heads").innerHTML = /*HTML*/ `
-    <button onclick="head4()" >◀</button>
-			<img src="img/head1.png"  />
-		<button onclick="head2()">▶</button>
-  `;
+const arrLegs = [
+	"img/legs1.png",
+	"img/legs2.png",
+	"img/legs3.png",
+	"img/legs4.png",
+];
+
+let headIndex = 0;
+let headContainer = arrHeads[headIndex];
+
+function headRight() {
+	if (headIndex < arrHeads.length - 1) {
+		headIndex++;
+	} else {
+		headIndex = 0;
+	}
+	headContainer = arrHeads[headIndex];
+	showHkb();
+}
+function headLeft() {
+	if (headIndex == 0) {
+		headIndex = 3;
+	} else {
+		headIndex--;
+	}
+	headContainer = arrHeads[headIndex];
+	showHkb();
 }
 
-function head2() {
-	document.getElementById("heads").innerHTML = /*HTML*/ `
-    <button onclick="head1()" >◀</button>
-			<img src="img/head2.png" />
-		<button onclick="head3()">▶</button>
-  `;
+let bodyIndex = 0;
+let bodyContainer = arrBodies[bodyIndex];
+
+function bodyRight() {
+	if (bodyIndex < arrBodies.length - 1) {
+		bodyIndex++;
+	} else {
+		bodyIndex = 0;
+	}
+	bodyContainer = arrBodies[bodyIndex];
+	showHkb();
+}
+function bodyLeft() {
+	if (bodyIndex == 0) {
+		bodyIndex = 3;
+	} else {
+		bodyIndex--;
+	}
+	bodyContainer = arrBodies[bodyIndex];
+	showHkb();
 }
 
-function head3() {
-	document.getElementById("heads").innerHTML = /*HTML*/ `
-    <button onclick="head2()" >◀</button>
-			<img id="head" src="img/head3.png" />
-		<button onclick="head4()">▶</button>
-  `;
-}
+let legsIndex = 0;
+let legsContainer = arrLegs[legsIndex];
 
-function head4() {
-	document.getElementById("heads").innerHTML = /*HTML*/ `
-    <button onclick="head3()" >◀</button>
-			<img src="img/head4.png" />
-		<button onclick="head1()">▶</button>
-  `;
+function legsRight() {
+	if (legsIndex < arrLegs.length - 1) {
+		legsIndex++;
+	} else {
+		legsIndex = 0;
+	}
+	legsContainer = arrLegs[legsIndex];
+	showHkb();
 }
-
-function body1() {
-	document.getElementById("bodies").innerHTML = /*HTML*/ `
-    <button onclick="body4()" >◀</button>
-			<img src="img/body1.png" />
-		<button onclick="body2()">▶</button>
-  `;
-}
-
-function body2() {
-	document.getElementById("bodies").innerHTML = /*HTML*/ `
-    <button onclick="body1()" >◀</button>
-			<img src="img/body2.png" />
-		<button onclick="body3()">▶</button>
-  `;
-}
-
-function body3() {
-	document.getElementById("bodies").innerHTML = /*HTML*/ `
-    <button onclick="body2()" >◀</button>
-			<img src="img/body3.png" />
-		<button onclick="body4()">▶</button>
-  `;
-}
-
-function body4() {
-	document.getElementById("bodies").innerHTML = /*HTML*/ `
-    <button onclick="body3()" >◀</button>
-			<img src="img/body1.png" />
-		<button onclick="body1()">▶</button>
-  `;
-}
-
-function legs1() {
-	document.getElementById("legs").innerHTML = /*HTML*/ `
-    <button onclick="legs4()" >◀</button>
-			<img src="img/legs1.png" />
-		<button onclick="legs2()">▶</button>
-  `;
-}
-
-function legs2() {
-	document.getElementById("legs").innerHTML = /*HTML*/ `
-    <button onclick="legs1()" >◀</button>
-			<img src="img/legs2.png" />
-		<button onclick="legs3()">▶</button>
-  `;
-}
-
-function legs3() {
-	document.getElementById("legs").innerHTML = /*HTML*/ `
-    <button onclick="legs2()" >◀</button>
-			<img src="img/legs3.png" />
-		<button onclick="legs4()">▶</button>
-  `;
-}
-
-function legs4() {
-	document.getElementById("legs").innerHTML = /*HTML*/ `
-    <button onclick="legs3()">◀</button>
-			<img src="img/legs4.png" />
-		<button onclick="legs1()">▶</button>
-  `;
+function legsLeft() {
+	if (legsIndex == 0) {
+		legsIndex = 3;
+	} else {
+		legsIndex--;
+	}
+	legsContainer = arrLegs[legsIndex];
+	showHkb();
 }
 
 var count = 0;
