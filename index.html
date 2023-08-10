@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="styles.css" />
+	<title>Eksempel 1</title>
+	<script src="script.js"></script>
+</head>
+
+<body>
+	<button onclick="noStyle()">Ingen Layout</button>
+	<button onclick="vertLayout()">Vertikal Layout</button>
+	<button onclick="horLayout()">Horisontal Layout</button>
+	<button onclick="gridLayout()">Grid Layout</button>
+
+	<h1>Eksempel 1</h1>
+
+	<div id="cards">
+		<div class="card">
+			<div class="green header" onclick="showTools()">
+				<h1>Verktøy</h1>
+			</div>
+			<div id="tools"></div>
+		</div>
+
+		<div class="card">
+			<div class="header blue" onclick="showHtml()">
+				<h1>HTML</h1>
+			</div>
+			<div id="html"></div>
+		</div>
+
+		<div class="card">
+			<div class="header red" onclick="showCss()">
+				<h1>CSS</h1>
+			</div>
+			<div id="css"></div>
+		</div>
+
+		<div class="card">
+			<div class="yellow header" onclick="showJs()">
+				<h1>Javascript</h1>
+			</div>
+			<div id="js"></div>
+		</div>
+
+		<div class="card">
+			<div class="header black" onclick="showHkb()">
+				<h1>Hode, kropp og ben</h1>
+			</div>
+			<div id="hkb"></div>
+		</div>
+
+
+		<div class="card">
+			<div class="header purple" onclick="showCounter()">
+				<h1>Teller</h1>
+			</div>
+			<div id="counter"></div>
+		</div>
+</body>
+
+</html>
