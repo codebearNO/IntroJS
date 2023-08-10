@@ -159,6 +159,7 @@ const arrHeads = [
 	"img/head2.png",
 	"img/head3.png",
 	"img/head4.png",
+	"img/head5.png",
 ];
 
 const arrBodies = [
@@ -166,6 +167,7 @@ const arrBodies = [
 	"img/body2.png",
 	"img/body3.png",
 	"img/body4.png",
+	"img/body5.png",
 ];
 
 const arrLegs = [
@@ -173,6 +175,7 @@ const arrLegs = [
 	"img/legs2.png",
 	"img/legs3.png",
 	"img/legs4.png",
+	"img/legs5.png",
 ];
 
 let headIndex = 0;
@@ -189,7 +192,7 @@ function headRight() {
 }
 function headLeft() {
 	if (headIndex == 0) {
-		headIndex = 3;
+		headIndex = arrHeads.length - 1;
 	} else {
 		headIndex--;
 	}
@@ -211,7 +214,7 @@ function bodyRight() {
 }
 function bodyLeft() {
 	if (bodyIndex == 0) {
-		bodyIndex = 3;
+		bodyIndex = arrBodies.length - 1;
 	} else {
 		bodyIndex--;
 	}
@@ -233,7 +236,7 @@ function legsRight() {
 }
 function legsLeft() {
 	if (legsIndex == 0) {
-		legsIndex = 3;
+		legsIndex = arrLegs.length - 1;
 	} else {
 		legsIndex--;
 	}
