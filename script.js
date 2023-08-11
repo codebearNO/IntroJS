@@ -160,6 +160,7 @@ const arrHeads = [
 	"img/head3.png",
 	"img/head4.png",
 	"img/head5.png",
+	"img/head6.png",
 ];
 
 const arrBodies = [
@@ -168,6 +169,7 @@ const arrBodies = [
 	"img/body3.png",
 	"img/body4.png",
 	"img/body5.png",
+	"img/body6.png",
 ];
 
 const arrLegs = [
@@ -176,6 +178,7 @@ const arrLegs = [
 	"img/legs3.png",
 	"img/legs4.png",
 	"img/legs5.png",
+	"img/legs6.png",
 ];
 
 let headIndex = 0;
@@ -250,9 +253,9 @@ function showCounter() {
 	clearAll();
 	document.getElementById("counter").innerHTML = /*HTML*/ `
   <div class="container">
-  <button id="minus" onclick="minus()">-</button>
+  <button onclick="minus()">-</button>
   <p id="display"></p>
-  <button id="plus"onclick="plus()">+</button>
+  <button onclick="plus()">+</button>
   </div>
   `;
 	document.getElementById("display").innerHTML = count;

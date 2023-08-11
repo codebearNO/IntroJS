@@ -50,6 +50,7 @@ div.container {
   align-items: center;
   justify-content: center;
   user-select: none;
+  width: 500px;
 }
 
 button {
@@ -70,4 +71,9 @@ button {
 .grid {
   display: grid;
   grid-template-columns: auto auto;
+}
+
+.container img {
+  width: 300px;
+  height: auto;
 }
