@@ -126,21 +126,21 @@ function showHkb() {
 	clearAll();
 	document.getElementById("hkb").innerHTML = /*HTML*/ `
     <div class="container">
-		<button onclick="headLeft()">◀</button>
+		<button onclick="stianVersion(0, 'left', headIndex, arrHeads)">◀</button>
 			<img src="${headContainer}"/>
-		<button onclick="headRight()">▶</button>
+		<button onclick="stianVersion(0, 'right', headIndex, arrHeads)">▶</button>
 		</div>
 
     <div class="container">
-		<button onclick="bodyLeft()">◀</button>
+		<button onclick="stianVersion(1, 'left', bodyIndex, arrBodies)">◀</button>
 			<img src="${bodyContainer}"/>
-		<button onclick="bodyRight()">▶</button>
+		<button onclick="stianVersion(1, 'right', bodyIndex, arrBodies)">▶</button>
 		</div>
 
     <div class="container">
-		<button onclick="legsLeft()">◀</button>
+		<button onclick="stianVersion(2, 'left', legsIndex, arrLegs)">◀</button>
 			<img src="${legsContainer}"/>
-		<button onclick="legsRight()">▶</button>
+		<button onclick="stianVersion(2, 'right', legsIndex, arrLegs)">▶</button>
 		</div>
     `;
 }
@@ -154,6 +154,7 @@ function clearAll() {
 	document.getElementById("counter").innerHTML = "";
 }
 
+let headIndex = 0;
 const arrHeads = [
 	"img/head1.png",
 	"img/head2.png",
@@ -162,7 +163,9 @@ const arrHeads = [
 	"img/head5.png",
 	"img/head6.png",
 ];
+let headContainer = arrHeads[headIndex];
 
+let bodyIndex = 0;
 const arrBodies = [
 	"img/body1.png",
 	"img/body2.png",
@@ -171,7 +174,9 @@ const arrBodies = [
 	"img/body5.png",
 	"img/body6.png",
 ];
+let bodyContainer = arrBodies[bodyIndex];
 
+let legsIndex = 0;
 const arrLegs = [
 	"img/legs1.png",
 	"img/legs2.png",
@@ -180,72 +185,105 @@ const arrLegs = [
 	"img/legs5.png",
 	"img/legs6.png",
 ];
-
-let headIndex = 0;
-let headContainer = arrHeads[headIndex];
-
-function headRight() {
-	if (headIndex < arrHeads.length - 1) {
-		headIndex++;
-	} else {
-		headIndex = 0;
-	}
-	headContainer = arrHeads[headIndex];
-	showHkb();
-}
-function headLeft() {
-	if (headIndex == 0) {
-		headIndex = arrHeads.length - 1;
-	} else {
-		headIndex--;
-	}
-	headContainer = arrHeads[headIndex];
-	showHkb();
-}
-
-let bodyIndex = 0;
-let bodyContainer = arrBodies[bodyIndex];
-
-function bodyRight() {
-	if (bodyIndex < arrBodies.length - 1) {
-		bodyIndex++;
-	} else {
-		bodyIndex = 0;
-	}
-	bodyContainer = arrBodies[bodyIndex];
-	showHkb();
-}
-function bodyLeft() {
-	if (bodyIndex == 0) {
-		bodyIndex = arrBodies.length - 1;
-	} else {
-		bodyIndex--;
-	}
-	bodyContainer = arrBodies[bodyIndex];
-	showHkb();
-}
-
-let legsIndex = 0;
 let legsContainer = arrLegs[legsIndex];
 
-function legsRight() {
-	if (legsIndex < arrLegs.length - 1) {
-		legsIndex++;
-	} else {
-		legsIndex = 0;
+//bodyPart (0 == hode, 1 == kropp, 2 == bein)
+function stianVersion(bodyPart, direction, index, imageArray) {
+	if (direction === "right") {
+		if (index < imageArray.length - 1) index++;
+		else index = 0;
+	} else if (direction === "left") {
+		if (index == 0) index = imageArray.length - 1;
+		else index--;
 	}
-	legsContainer = arrLegs[legsIndex];
+
+	switch (bodyPart) {
+		case 0:
+			headIndex = index;
+			headContainer = imageArray[index];
+			break;
+		case 1:
+			bodyIndex = index;
+			bodyContainer = imageArray[index];
+			break;
+		case 2:
+			legsIndex = index;
+			legsContainer = imageArray[index];
+			break;
+	}
+
 	showHkb();
 }
-function legsLeft() {
-	if (legsIndex == 0) {
-		legsIndex = arrLegs.length - 1;
+
+function bpRight(indexArray, arrayName, contName) {
+	if (indexArray < arrayName.length - 1) {
+		indexArray++;
 	} else {
-		legsIndex--;
+		indexArray = 0;
 	}
-	legsContainer = arrLegs[legsIndex];
+	console.log(indexArray);
+	console.log(arrayName);
+	console.log(contName);
+	contName = arrayName[indexArray];
 	showHkb();
 }
+
+// function headRight() {
+// 	if (headIndex < arrHeads.length - 1) {
+// 		headIndex++;
+// 	} else {
+// 		headIndex = 0;
+// 	}
+// 	headContainer = arrHeads[headIndex];
+// 	showHkb();
+// }
+// function headLeft() {
+// 	if (headIndex == 0) {
+// 		headIndex = arrHeads.length - 1;
+// 	} else {
+// 		headIndex--;
+// 	}
+// 	headContainer = arrHeads[headIndex];
+// 	showHkb();
+// }
+
+// function bodyRight() {
+// 	if (bodyIndex < arrBodies.length - 1) {
+// 		bodyIndex++;
+// 	} else {
+// 		bodyIndex = 0;
+// 	}
+// 	bodyContainer = arrBodies[bodyIndex];
+// 	showHkb();
+// }
+// function bodyLeft() {
+// 	if (bodyIndex == 0) {
+// 		bodyIndex = arrBodies.length - 1;
+// 	} else {
+// 		bodyIndex--;
+// 	}
+// 	bodyContainer = arrBodies[bodyIndex];
+// 	showHkb();
+// }
+
+// function legsRight() {
+// 	if (legsIndex < arrLegs.length - 1) {
+// 		legsIndex++;
+// 	} else {
+// 		legsIndex = 0;
+// 	}
+// 	legsContainer = arrLegs[legsIndex];
+// 	showHkb();
+// }
+// function legsLeft() {
+// 	if (legsIndex == 0) {
+// 		legsIndex = arrLegs.length - 1;
+// 	} else {
+// 		legsIndex--;
+// 	}
+// 	legsContainer = arrLegs[legsIndex];
+// 	showHkb();
+// }
 
 var count = 0;
 
